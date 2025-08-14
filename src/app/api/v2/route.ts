@@ -36,7 +36,7 @@ async function meetingAgent(prompt: string, userId: string, supabase: SupabaseCl
         const eventDate = new Date(start!);
         const isAllDay = !!event.start?.date;
         const formattedDate = isAllDay 
-            ? eventDate.toLocaleDateDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' })
+            ? eventDate.toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' })
             : eventDate.toLocaleString(undefined, { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' });
         return `- ${event.summary} (on ${formattedDate})`;
     }).join('\n');
